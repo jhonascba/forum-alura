@@ -78,7 +78,7 @@ public class TopicosController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    @CacheEvict(value = "listaDeTopicos", allEntries = true) //invalidar cache
+    @CacheEvict(value = "listaDeTopicos", allEntries = true) //invalidar cache e excluir todos os resultados
     public ResponseEntity<?> remover(@PathVariable Long id) {
         Optional<Topico> optional = topicoRepository.findById(id);
         if (optional.isPresent()) {
